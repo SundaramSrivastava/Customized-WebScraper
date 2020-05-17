@@ -8,14 +8,12 @@ modal = ''
 responseFromUrl = requests.get('ENTER A URL HERE')
 
 def replaceStringInHtml (content, tag, newTag):
-    print(tag + "______________" + newTag)
     return content.replace( tag, newTag)
 
 elements = ['h1','H1','h2','H2','P','p','H3','h3']
 
 with open('modal.txt', 'r') as htmlTags:
     modal = htmlTags.read()
-    print(modal)
 
 content = responseFromUrl.text
 
