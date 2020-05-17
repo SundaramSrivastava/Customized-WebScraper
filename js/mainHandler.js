@@ -1,8 +1,4 @@
-let store = {};
-
-let activeSubFile = "";
-let continueSameIndex = false;
-
+let store = {};let activeSubFile = "";let continueSameIndex = false;
 selectThisTag = (event) => {
   if (event.target.classList.value.includes("Scrapped")) {
     delete event.target.classList.remove("Scrapped");
@@ -19,8 +15,6 @@ selectThisTag = (event) => {
     }
     
   }
-
-  console.log(store);
 };
 
 function modal(){
@@ -34,14 +28,12 @@ function closeModal() {
   if (newFile != "") {
     selectActive = document.getElementById("selectActive")
     store[newFile] = [];
-    console.log(store);
     document.getElementById("newFileName").value = "";
     selectActive.add(new Option(newFile,newFile), undefined)
   }
 
   if(activeFile != ""){
       activeSubFile = activeFile
-      console.log(activeSubFile)
   }
 
   document.getElementById("createFileModal").close();
