@@ -1,0 +1,1 @@
+<link rel='stylesheet' href='./test.css' media='all'> <script type='text/javascript' src='./dependencies/getText.js'></script></head>
