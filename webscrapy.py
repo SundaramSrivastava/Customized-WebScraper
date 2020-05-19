@@ -1,35 +1,14 @@
 import requests
-import bs4
-import webbrowser
+import contentHandler
+import browserHandler
 
-new = 2
-modal = ''
+url="https://isha.sadhguru.org/mahashivratri/hi/shiva-adiyogi/shiv-tandav-stotram-lyrics-meaning/"
 
-responseFromUrl = requests.get('ENTER A URL HERE')
-
-def replaceStringInHtml (content, tag, newTag):
-    print(tag + "______________" + newTag)
-    return content.replace( tag, newTag)
-
-elements = ['h1','H1','h2','H2','P','p','H3','h3']
-
-with open('modal.txt', 'r') as htmlTags:
-    modal = htmlTags.read()
-    print(modal)
+responseFromUrl = requests.get(url)
 
 content = responseFromUrl.text
 
-content = replaceStringInHtml(content, "</head>", "<link rel='stylesheet' href='./test.css' media='all'> <script type='text/javascript' src='./js/mainHandler.js'></script></head>")
-content = replaceStringInHtml(content, "</body>", modal)
+content = contentHandler.addFiles(content, ['body','head'])
+content = contentHandler.addEvents(content, ['h1','H1','h2','H2','P','p','H3','h3'])
 
-for element in elements:
-    content = replaceStringInHtml(content, '<'+element+'>',
-                                  "<"+element+" onclick='selectThisTag(event)'>" )
-
-file = open('test.html','w', encoding="utf-8")
-file.write(content)
-file.close()
-
-webbrowser.open('test.html', new=new)
-
-
+browserHandler.launchBrowser( content )
