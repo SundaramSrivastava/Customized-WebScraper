@@ -2,7 +2,7 @@ import requests
 import contentHandler
 import browserHandler
 
-url="https://isha.sadhguru.org/mahashivratri/hi/shiva-adiyogi/shiv-tandav-stotram-lyrics-meaning/"
+url="PASTE YOUR URL HERE"
 
 responseFromUrl = requests.get(url)
 
